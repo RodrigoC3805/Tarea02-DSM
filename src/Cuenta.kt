@@ -1,8 +1,8 @@
 open class Cuenta(saldo:Float, tasaAnual: Float) {
-    var saldo:Float
-    var numConsignaciones = 0
-    var numRetiros = 0
-    var tasaAnual:Float = 0.0f
+    protected var saldo:Float
+    protected var numConsignaciones = 0
+    protected var numRetiros = 0
+    protected var tasaAnual:Float = 0.0f
         set (value) {
             if (value>=0 && value<=1){
                 field = value
@@ -12,7 +12,7 @@ open class Cuenta(saldo:Float, tasaAnual: Float) {
             }
         }
     //No se menciona cuando cambia de estado la comisión mensual o como se calcula
-    var comisionMens = 0.0f
+    protected var comisionMens = 0.0f
 
     init {
         this.saldo = saldo
@@ -51,6 +51,7 @@ open class Cuenta(saldo:Float, tasaAnual: Float) {
     }
 
     open fun imprimir () {
+        println("======== CUENTA =========")
         println("Saldo: S/${this.saldo}")
         println("Número de consignaciones: ${this.numConsignaciones}")
         println("Número de retiros: ${this.numRetiros}")
